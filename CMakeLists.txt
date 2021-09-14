@@ -23,7 +23,7 @@ target_include_directories(sane-epkowa PRIVATE sanei)
 target_include_directories(sane-epkowa PRIVATE sanei/include)
 target_include_directories(sane-epkowa PRIVATE utils)
 
-target_link_libraries(sane-epkowa ltdl usb-1.0 sane)
+target_link_libraries(sane-epkowa ltdl usb-1.0 xml2 sane)
 
 target_compile_definitions(sane-epkowa PUBLIC BACKEND_NAME=epkowa)
 target_compile_definitions(sane-epkowa PUBLIC SANE_MAJOR=1)
