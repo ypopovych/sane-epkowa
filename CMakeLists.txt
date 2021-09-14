@@ -4,12 +4,14 @@ project(sane-epkowa)
 
 set(DATA_PKG_NAME "epkowa" CACHE STRING "")
 set(MODEL_DATA_DIR_NAME "device" CACHE STRING "")
+set(LIB_DIR "/usr/lib/sane" CACHE STRING "")
 set(DATA_DIR "/usr/share/sane" CACHE STRING "")
 set(PKG_DATA_DIR "${DATA_DIR}/${DATA_PKG_NAME}" CACHE STRING "")
+set(PKG_LIB_DIR "${LIB_DIR}/${DATA_PKG_NAME}" CACHE STRING "")
 set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME}" CACHE STRING "")
 
 
-file(GLOB BackendSources src/*.c)
+file(GLOB BackendSources backend/*.c)
 file(GLOB SaneiSources sanei/src/*.c)
 file(GLOB UtilsSources utils/*.c)
 
@@ -27,4 +29,5 @@ target_compile_definitions(sane-epkowa PUBLIC SANE_MINOR=0)
 target_compile_definitions(sane-epkowa PUBLIC SANE_REVISION=32)
 target_compile_definitions(sane-epkowa PUBLIC PKGDATADIR="${PKG_DATA_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC MODELDATADIR="${MODEL_DATA_DIR}")
+target_compile_definitions(sane-epkowa PUBLIC PKGLIBDIR="${PKG_LIB_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC HAVE_LIBUSB_1_0)
