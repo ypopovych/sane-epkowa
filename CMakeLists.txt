@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.1)
 
 project(sane-epkowa)
 
-set(DATA_PKG_NAME "epkowa" CACHE)
-set(MODEL_DATA_DIR_NAME "device" CACHE)
-set(DATA_DIR "/usr/share/sane" CACHE)
-set(PKG_DATA_DIR "${DATA_DIR}/${DATA_PKG_NAME}" CACHE)
-set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME}" CACHE)
+set(DATA_PKG_NAME "epkowa" CACHE STRING "")
+set(MODEL_DATA_DIR_NAME "device" CACHE STRING "")
+set(DATA_DIR "/usr/share/sane" CACHE STRING "")
+set(PKG_DATA_DIR "${DATA_DIR}/${DATA_PKG_NAME}" CACHE STRING "")
+set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME}" CACHE STRING "")
 
 
 file(GLOB BackendSources src/*.c)
