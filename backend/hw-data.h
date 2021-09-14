@@ -132,5 +132,6 @@ SANE_Bool maintenance_is_supported (const device *hw);
            initialized with data read from file.
  */
 extern const EpsonScanHardRec *epson_scan_hard;
+extern const int epson_scan_hard_count;
 
 #endif  /* !defined (hw_data_h_included) */

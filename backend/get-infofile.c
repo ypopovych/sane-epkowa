@@ -265,7 +265,7 @@ EpsonScanHard get_epson_scan_hard (const char *fw_name)
 
   if (data && data->profile_ID)
     {
-      i = num_of (_epson_scan_hard);
+      i = epson_scan_hard_count;
 
       while (--i && data->profile_ID != epson_scan_hard[i].modelID)
         ;

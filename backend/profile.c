@@ -539,3 +539,5 @@ const EpsonScanHardRec _epson_scan_hard[] = {
 };
 
 const EpsonScanHardRec *epson_scan_hard = _epson_scan_hard;
+
+const int epson_scan_hard_count = num_of(_epson_scan_hard);
