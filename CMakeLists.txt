@@ -6,7 +6,7 @@ set(DATA_PKG_NAME "epkowa" CACHE)
 set(MODEL_DATA_DIR_NAME "device" CACHE)
 set(DATA_DIR "/usr/share/sane" CACHE)
 set(PKG_DATA_DIR "${DATA_DIR}/${DATA_PKG_NAME}" CACHE)
-set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME} CACHE)
+set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME}" CACHE)
 
 
 file(GLOB BackendSources src/*.c)
