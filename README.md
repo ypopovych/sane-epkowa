@@ -1,6 +1,5 @@
-# ImageScane Epkowa backend extracted
+# Extracted Image Scan Epkowa SANE backend
 This repository contains SANE backend sources extracted from ImageScan package from Epson.
-
 
 ## Note: This repository simply contains copied sources from [here](http://support.epson.net/linux/src/scanner/iscan/)
 
