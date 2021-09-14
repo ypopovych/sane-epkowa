@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.1)
 
-project (sane-epkowa)
+project(sane-epkowa)
+
+set(DATA_PKG_NAME "epkowa" CACHE)
+set(MODEL_DATA_DIR_NAME "device" CACHE)
+set(DATA_DIR "/usr/share/sane" CACHE)
+set(PKG_DATA_DIR "${DATA_DIR}/${DATA_PKG_NAME}" CACHE)
+set(MODEL_DATA_DIR "${PKG_DATA_DIR}/${MODEL_DATA_DIR_NAME} CACHE)
+
 
 file(GLOB BackendSources src/*.c)
 file(GLOB SaneiSources sanei/src/*.c)
@@ -12,7 +19,12 @@ target_include_directories(sane-epkowa PRIVATE sanei)
 target_include_directories(sane-epkowa PRIVATE sanei/include)
 target_include_directories(sane-epkowa PRIVATE utils)
 
-target_link_libraries(sane-epkowa ltdl usb-1 sane)
+target_link_libraries(sane-epkowa ltdl usb-1.0 sane)
 
 target_compile_definitions(sane-epkowa PUBLIC BACKEND_NAME=epkowa)
+target_compile_definitions(sane-epkowa PUBLIC SANE_MAJOR=1)
+target_compile_definitions(sane-epkowa PUBLIC SANE_MINOR=0)
+target_compile_definitions(sane-epkowa PUBLIC SANE_REVISION=32)
+target_compile_definitions(sane-epkowa PUBLIC PKGDATADIR="${PKG_DATA_DIR}")
+target_compile_definitions(sane-epkowa PUBLIC MODELDATADIR="${MODEL_DATA_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC HAVE_LIBUSB_1_0)
