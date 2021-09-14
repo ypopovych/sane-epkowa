@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-project (saned-epkowa)
+project (sane-epkowa)
 
 file(GLOB BackendSources src/*.c)
 file(GLOB SaneiSources sanei/src/*.c)
