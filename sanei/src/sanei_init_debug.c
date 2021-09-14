@@ -107,7 +107,10 @@ sanei_debug_msg
   if (max_level >= level)
     {
 #ifdef S_IFSOCK
-      if ( 1 == isfdtype(fileno(stderr), S_IFSOCK) )
+      struct stat ss;
+      fstat(fileno(stderr), &ss);
+
+      if (ss.st_mode & S_IFSOCK)
 	{
 	  msg = (char *)malloc (sizeof(char) * (strlen(be) + strlen(fmt) + 4));
 	  if (msg == NULL)
