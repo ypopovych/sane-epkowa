@@ -1023,10 +1023,11 @@ _cfg_register_scsi_entry (const char *string)
   info = t_malloc (1, cfg_scsi_info);
   if (info)
     {
-      char *vendor = NULL;
-      char *model  = NULL;
+      char *vendor = t_malloc (255, char);
+      char *model  = t_malloc (255, char);
+      vendor[0] = model[0] = '\0';
 
-      sscanf (string, "%*s %as %as", &vendor, &model);
+      sscanf (string, "%*s %255s %255s", vendor, model);
 
       if (list_append (_cfg->seen[CFG_KEY_SCSI], info))
         {
@@ -1105,13 +1106,14 @@ _cfg_register_interpreter_entry (const char *string)
     {
       unsigned int vendor;
       unsigned int product;
-      char *library  = NULL;
-      char *firmware = NULL;
+      char *library  = t_malloc (255, char);
+      char *firmware = t_malloc (255, char);
+      library[0] = firmware[0] = '\0';
 
-      sscanf (string, "%*s %*s %x %x %as %as",
+      sscanf (string, "%*s %*s %x %x %255s %255s",
               &vendor, &product, &library, &firmware);
 
-      if (library && _cfg_have_interpreter (library, firmware)
+      if (library[0] != '\0' && _cfg_have_interpreter (library, firmware)
           && list_append (_cfg->seen[CFG_KEY_INTERPRETER], info))
         {
           info->vendor   = vendor;

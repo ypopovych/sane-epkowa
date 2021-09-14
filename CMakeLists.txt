@@ -17,7 +17,7 @@ find_package(LibXml2 REQUIRED)
 file(GLOB BackendSources backend/*.c)
 file(GLOB SaneiSources sanei/src/*.c)
 
-add_library(sane-epkowa ${BackendSources} ${SaneiSources})
+add_library(sane-epkowa MODULE ${BackendSources} ${SaneiSources})
 
 target_include_directories(sane-epkowa PUBLIC ${LIBXML2_INCLUDE_DIRS})
 target_include_directories(sane-epkowa PRIVATE sanei)
@@ -35,3 +35,5 @@ target_compile_definitions(sane-epkowa PUBLIC MODELDATADIR="${MODEL_DATA_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC PKGLIBDIR="${PKG_LIB_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC PKGLOCALSTATEDIR="${PKG_STATE_DIR}")
 target_compile_definitions(sane-epkowa PUBLIC HAVE_LIBUSB_1_0)
+
+install(TARGETS sane-epkowa LIBRARY DESTINATION lib)

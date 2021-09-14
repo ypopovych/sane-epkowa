@@ -931,7 +931,11 @@ sanei_usb_init (void)
 	}
 #ifdef DBG_LEVEL
       if (DBG_LEVEL > 4)
-	libusb_set_debug (sanei_usb_ctx, 3);
+    #if LIBUSB_API_VERSION >= 0x01000106
+        libusb_set_option(sanei_usb_ctx, LIBUSB_OPTION_LOG_LEVEL, 3);
+    #else
+        libusb_set_debug(sanei_usb_ctx, 3);
+    #endif
 #endif /* DBG_LEVEL */
     }
 
