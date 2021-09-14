@@ -61,6 +61,7 @@
  *  exception.
  */
 
+#include "device.h"
 
 /*! Hardware colour correction coefficients (CCC).
 
