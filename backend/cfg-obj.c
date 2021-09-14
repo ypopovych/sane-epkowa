@@ -1111,7 +1111,7 @@ _cfg_register_interpreter_entry (const char *string)
       library[0] = firmware[0] = '\0';
 
       sscanf (string, "%*s %*s %x %x %255s %255s",
-              &vendor, &product, &library, &firmware);
+              &vendor, &product, library, firmware);
 
       if (library[0] != '\0' && _cfg_have_interpreter (library, firmware)
           && list_append (_cfg->seen[CFG_KEY_INTERPRETER], info))

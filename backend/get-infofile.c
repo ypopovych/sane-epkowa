@@ -67,7 +67,6 @@
 #include <string.h>
 
 #include "get-infofile.h"
-#include "profile.c"
 
 const struct ScannerData scanner_data[] = {
   {"GT-10000", 0x05, 0x05, {NULL, NULL}},
